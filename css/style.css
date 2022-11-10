@@ -203,3 +203,22 @@ header, footer{
     box-shadow: 0 0 15px 0 rgb(255, 0, 0, 35%);
     transform: translateY(-2px);
 }
+
+@media (max-width: 650px){
+    body, footer, header{font-size: 12px;}
+    .card{
+        width: 130px;
+        height: 270px;
+    }
+    .card img{width: 90px;}
+    .cardImg{height: 150px;}
+    .cartBtn{
+        width: 80px;
+        height: 25px;
+    }
+    .heartRed, .heart{
+        font-size: 18px;
+    }
+    
+    
+}
