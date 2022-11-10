@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UsingAPI</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="nameShop">SHOP</div>
+            <div class="menu">
+                <a id="deliveryA" href="">
+                    Доставка
+                    <div id="delivery"><p>Бесплатная доставка по Москве.</p></div>
+                </a>
+                <a id="payA" href="">
+                    Оплата
+                    <div id="pay"><p>Платите, когда хотите.</p></div>
+                </a>
+                <a href="tel: +79060685310" target="_blank">Телефон 8(800)0000000000</a>
+            </div>
+            <div class="cartImg">
+                <img src="img/cartImg.png" onclick="showCart()">
+                <button id="countCart">0</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="cardsAll">
+        <div id="containerCards"></div>  
+    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="footerMenu">
+                <a href="tel: +79060685310" target="_blank">8(800)0000000000</a>
+                <a href="mailto: evchemez@mail.ru" target="_blank">shop@shop.ru</a>
+                <div class="contact">
+                    <a href="#"><img src="img/vk.png" class="contactsSize"></a>
+                    <a href="#"><img src="img/telegramm.png" class="contactsSize"></a>
+                    <a href="#"><img src="img/insta.jpg" class="contactsSize"></a>
+                </div>
+            </div>
+            <div id="info"><i>Учебный проект с использованием API: </i><a href="https://fakestoreapi.com/products/" target="_blank"><i>https://fakestoreapi.com/products/</i></a></div>
+        </div>
+    </footer>   
+</body>
+</html>
+
+<style>
+    @font-face {
+        font-family: 'Poppins'; 
+        src: url('fonts/Poppins-Medium.ttf'); 
+    }   
+    body, p{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+    } 
+    a{
+        color:white;
+        text-decoration: none;
+    }
+    button{cursor: pointer;}
+    h3{margin: 0;}
+    header, footer{
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        width: 100%; 
+        height: 100px;
+        font-size: 16px;
+        background: rgb(1, 5, 11);
+        color: white;
+    }
+    .header, .footer{
+        width: 100%;
+        padding: 20px 40px 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+/*header*/    
+    .nameShop{font-size: 18px;}
+    .menu{
+        display: flex;
+        column-gap: 40px;
+    }
+    #deliveryA, #payA{position: relative;}
+    #delivery, #pay{
+        position: absolute;
+        width: 100px;
+        top:100%;
+        left: -5px;
+        background-color:gainsboro;
+        color: black;
+        font-size: 12px;
+        padding: 2px;
+        border-radius: 5px;
+        display: none;
+    }
+    .cartImg{
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+    .cartImg img{
+        width: 40px;
+        cursor: pointer;
+    }
+    #countCart{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FF0033;
+        color: white;
+        border: none;
+        position: absolute;
+        padding: 0;
+        font-size: 12px;
+        top: -7px;
+        left: -9px;
+    }
+
+/*footer*/
+    .footer{flex-direction: column;}
+    .footerMenu{
+        width: 100%;
+        display: flex;
+        column-gap: 40px;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .contactsSize{
+        transition: all 0.4s;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 3px solid white;
+        background-color: white;
+        overflow: hidden;
+        background-position: center center;
+        opacity: 0.6;
+    }
+    #info{font-size: 12px;}
+
+/*основная часть*/
+    #cardsAll{
+        display: flex;
+        justify-content: center;
+        width:100%;
+        background-image: url('img/fon.png');
+    }
+    #containerCards{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 80%;
+        margin: 20px;
+    }
+    .card{
+        width: 200px;
+        height: 330px;
+        padding: 10px 12px 10px;
+        background-color: white;
+        margin: 7px;
+        border-radius: 10px;
+        transition: all 0.3s;
+    }
+    .card img{width: 120px;}
+    .cardImg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        width: 100%;
+    }   
+    .description{
+        position: relative;
+        padding: 5px 0 5px;
+    }
+    #name{
+        padding: 10px 0 0;
+        color: gray;
+        height: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    #nameVisible{
+        display: none;
+        position: absolute;
+        top: 24px;
+        padding: 10px 0 10px;
+        color: gray;
+        height: auto;
+        background-color: white;
+    }
+    .rating{
+        display: flex;
+        align-items: baseline;
+        column-gap: 10px;
+        padding: 0 0 10px;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
+    }    
+    .cartAdd{
+        background: #339966;
+        transition: all 0.3s;
+    }
+   .cartDelete{
+        background: #FF0033;
+        display: none;
+        transition: all 0.3s;
+    }
+    .cartBtn{
+        width: 100px;
+        height: 33px;
+        border-radius: 12px;
+        color: white;
+        border: none;
+    }
+    .heart, .heartRed{
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        background: none;
+        border: none;
+    }
+    .heart{font-size: 24px;}
+    .heartRed{
+        font-size: 20px;
+        color: red;
+        display: none;
+    }
+
+/*hover*/
+    #deliveryA:hover > div{display: block;}
+    #payA:hover > div{display: block;}
+
+    .contactsSize:hover{opacity: 1;}
+
+    .description:hover #nameVisible{display: block;}
+    .card:hover{box-shadow: 0 0 15px 0 rgba(0, 0, 255, 0.35);}
+    .cartAdd:hover{
+        box-shadow: 0 0 15px 0 rgb(0, 255, 0, 35%);
+        transform: translateY(-2px);
+    }
+    .cartDelete:hover{
+        box-shadow: 0 0 15px 0 rgb(255, 0, 0, 35%);
+        transform: translateY(-2px);
+    }
+ </style>
+
+ <script>
+    let countCart=0;
+
+    let requestObj = new XMLHttpRequest();
+    requestObj.open('GET', 'https://fakestoreapi.com/products/', false);
+    requestObj.send();
+
+    let arrayJSON = JSON.parse(requestObj.responseText);
+/*собираем данные из API*/
+    for(let i = 0; i < arrayJSON.length; i++){
+    document.getElementById('containerCards').innerHTML += `
+                        <div id="card${arrayJSON[i]['id']}" class="card">
+                                <div class="cardImg">
+                                    <img src="${arrayJSON[i]['image']}">
+                                </div>
+                                <div class="description">
+                                    <h3>${arrayJSON[i]['price']} &#8381</h3>
+                                    <div id="name">${arrayJSON[i]['title']}</div>
+                                    <div id="nameVisible">${arrayJSON[i]['title']}</div>
+                                </div>
+                                <div class="rating">
+                                    <h3>&#10026</h3>
+                                    <h3 style="font-weight: 100">${arrayJSON[i]['rating']['rate']}</h3>
+                                </div>
+                                <div class="btn">
+                                    <button id="cart${arrayJSON[i]['id']}" class="cartBtn cartAdd" onclick="hiddenCartAdd()">В корзину</button>
+                                    <button id="cart${arrayJSON[i]['id']}Delete" class="cartBtn cartDelete" onclick="hiddenCartDelete()">Удалить</button>
+                                    <button id="heart${arrayJSON[i]['id']}" class="heart" onclick="hiddenHeart()">&#9825</button>
+                                    <button id="heart${arrayJSON[i]['id']}Red" class="heartRed" onclick="hiddenHeartRed()">&#10084</button>
+                                </div>
+                            </div>
+                                `;
+    }
+
+/*при нажатии появляется-исчезает красное сердечко, типо добавили-убрали в избранное*/
+    function hiddenHeart(){
+        let idElement = event.target.id+"Red";
+        event.target.style.display="none";
+        document.getElementById(idElement).style.display="inline-block";
+    }
+    function hiddenHeartRed(){
+        let idElement = event.target.id.replace("Red", "");
+        event.target.style.display="none";
+        document.getElementById(idElement).style.display="inline-block";
+    }
+/*  при нажатии меняется кнопка Корзины(добавить-удалить) и 
+    идёт подсчёт товаров в Корзине (отображается в красном кружке)*/
+/*настроен только счётчик, функционала записи наименований товаров нет*/
+    function hiddenCartAdd(){
+        let idElement = event.target.id+"Delete";
+        event.target.style.display="none";
+        document.getElementById(idElement).style.display="inline-block";
+        countCart++;
+        document.getElementById('countCart').innerHTML = countCart;
+    }
+    function hiddenCartDelete(){
+        let idElement = event.target.id.replace("Delete", "");
+        event.target.style.display="none";
+        document.getElementById(idElement).style.display="inline-block";
+        countCart--;
+        document.getElementById('countCart').innerHTML = countCart;
+    }
+/*при нажатии на Корзину в шапке показать кол-во добавленных товаров*/
+    function showCart(){
+        alert("Выбрано товаров: " + countCart);
+    }
+
+ </script>
