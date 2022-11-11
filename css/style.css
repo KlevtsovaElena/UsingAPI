@@ -204,7 +204,7 @@ header, footer{
     transform: translateY(-2px);
 }
 
-@media (max-width: 750px){
+@media (max-width: 850px){
     body, footer, header{font-size: 12px;}
     #containerCards{
         width:100%;
