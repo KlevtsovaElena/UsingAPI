@@ -206,9 +206,7 @@ header, footer{
 
 @media (max-width: 850px){
     body, footer, header{font-size: 12px;}
-    #containerCards{
-        width:100%;
-    }
+    #containerCards{width:100%;}
     .card{
         width: 130px;
         height: 270px;
@@ -219,9 +217,17 @@ header, footer{
         width: 80px;
         height: 25px;
     }
-    .heartRed, .heart{
-        font-size: 18px;
+    .heartRed, .heart{font-size: 18px;  }
+}
+@media (max-width: 650px){
+    .footerMenu, .header, .menu{
+        align-items: center;
+        flex-direction: column;
     }
-    
-    
+    .contact{padding-top: 5px;}
+    .cartImg{padding-top: 10px;}
+    #countCart{top: 2px;}
+    #info{text-align: center;}
+    footer, header{height: auto;}
+
 }
