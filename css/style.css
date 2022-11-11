@@ -206,6 +206,9 @@ header, footer{
 
 @media (max-width: 650px){
     body, footer, header{font-size: 12px;}
+    #containerCards{
+        width:100%;
+    }
     .card{
         width: 130px;
         height: 270px;
