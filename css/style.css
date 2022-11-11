@@ -38,6 +38,7 @@ header, footer{
 }
 #deliveryA, #payA{position: relative;}
 #delivery, #pay{
+    z-index: 3;
     position: absolute;
     width: 100px;
     top:100%;
